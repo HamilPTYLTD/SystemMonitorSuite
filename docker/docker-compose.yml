@@ -1,0 +1,7 @@
+﻿version: '3.8'
+
+services:
+  backend:
+    build: ../backend/SystemMonitor.Backend
+    ports:
+      - "5000:80"

@@ -1,0 +1,15 @@
+﻿bin/
+obj/
+build/
+dist/
+*.log
+.env
+.DS_Store
+Thumbs.db
+node_modules/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+ios/Pods/
+android/.gradle/
