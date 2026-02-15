@@ -15,3 +15,5 @@ ios/Pods/
 android/.gradle/
 backend/SystemMonitor.Backend/publish/
 publishprofile.xml
+publishprofile.xml
+backend/SystemMonitor.Backend/publish/
