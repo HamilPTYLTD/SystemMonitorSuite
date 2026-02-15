@@ -1,20 +1,25 @@
 using Microsoft.AspNetCore.Mvc;
 
-[ApiController]
-[Route("api/[controller]")]
-public class SystemMonitorController : ControllerBase
+namespace SystemMonitor.Backend.Controllers
 {
-    [HttpGet("status")]
-    public IActionResult GetStatus()
+    [ApiController]
+    [Route("api/[controller]")]
+    public class SystemMonitorController : ControllerBase
     {
-        return Ok(new { status = "running", timestamp = DateTime.UtcNow });
-    }
+        [HttpGet("status")]
+        public IActionResult GetStatus()
+        {
+            return Ok(new { status = "running", timestamp = DateTime.UtcNow });
+        }
 
-    [HttpGet("metrics")]
-    public IActionResult GetMetrics()
-    {
-        var cpuUsage = 25.3;   // placeholder
-        var memoryUsage = 48.7; // placeholder
-        return Ok(new { cpu = cpuUsage, memory = memoryUsage, timestamp = DateTime.UtcNow });
+        [HttpGet("metrics")]
+        public IActionResult GetMetrics()
+        {
+            // Replace with real system metrics later
+            var cpuUsage = 25.3;
+            var memoryUsage = 48.7;
+            return Ok(new { cpu = cpuUsage, memory = memoryUsage, timestamp = DateTime.UtcNow });
+        }
     }
 }
+

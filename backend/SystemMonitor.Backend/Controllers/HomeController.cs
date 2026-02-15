@@ -1,12 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
 
-[ApiController]
-[Route("/")]
-public class HomeController : ControllerBase
+namespace SystemMonitor.Backend.Controllers
 {
-    [HttpGet]
-    public IActionResult Get()
+    [ApiController]
+    [Route("/")]
+    public class HomeController : ControllerBase
     {
-        return Content("System Monitor Backend is live!", "text/plain");
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Content("System Monitor Backend is live!", "text/plain");
+        }
     }
 }
