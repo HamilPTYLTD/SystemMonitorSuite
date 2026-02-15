@@ -1,5 +1,6 @@
 ﻿name: Build and Deploy Backend
 
+# Trigger on push to main branch
 on:
   push:
     branches:
@@ -10,22 +11,31 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2️⃣ Setup .NET SDK
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
 
+      # 3️⃣ Build and publish backend
       - name: Build and publish backend
         run: dotnet publish backend/SystemMonitor.Backend -c Release -o publish
 
+      # 4️⃣ Login to Azure using Service Principal
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # 5️⃣ Deploy to Azure Web App
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: systemmonitor2022738380
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          app-name: systemmonitor2022738380      # <-- replace with your Azure Web App name
           package: publish
 
 
