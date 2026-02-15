@@ -7,6 +7,6 @@ public class HomeController : ControllerBase
     [HttpGet]
     public IActionResult Get()
     {
-        return Content("System Monitor Backend is running!", "text/plain");
+        return Content("System Monitor Backend is live!", "text/plain");
     }
 }
