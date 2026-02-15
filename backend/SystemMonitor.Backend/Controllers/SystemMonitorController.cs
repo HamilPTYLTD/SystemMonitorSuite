@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SystemMonitor.Backend.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class SystemMonitorController : ControllerBase
@@ -9,17 +11,18 @@ namespace SystemMonitor.Backend.Controllers
         [HttpGet("status")]
         public IActionResult GetStatus()
         {
-            return Ok(new { status = "running", timestamp = DateTime.UtcNow });
+            return Ok(new { status = "Secure API working" });
         }
 
         [HttpGet("metrics")]
         public IActionResult GetMetrics()
         {
-            // Replace with real system metrics later
-            var cpuUsage = 25.3;
-            var memoryUsage = 48.7;
-            return Ok(new { cpu = cpuUsage, memory = memoryUsage, timestamp = DateTime.UtcNow });
+            return Ok(new
+            {
+                cpuTemperature = 45,
+                gpuTemperature = 50,
+                timestamp = DateTime.UtcNow
+            });
         }
     }
 }
-
