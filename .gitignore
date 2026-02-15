@@ -13,3 +13,4 @@ node_modules/
 .pub-cache/
 ios/Pods/
 android/.gradle/
+backend/SystemMonitor.Backend/publish/
