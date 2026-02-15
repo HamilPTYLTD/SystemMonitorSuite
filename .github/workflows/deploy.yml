@@ -36,6 +36,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: systemmonitor2022738380      # <-- replace with your Azure Web App name
-          package: publish
+          package: backend/SystemMonitor.Backend/publish
 
 
